@@ -29,14 +29,9 @@ class Field {
     
   }
   
-  generateField() {
-    let heigth = prompt('Please enter the height of the field');
-    console.log('The height is: ' + heigth)
-    let width = prompt('Please enter the width of the field');
-    console.log('The width is: ' + width)
-    let percentage = prompt('Please enter the percentage of the holes');
-    console.log('The percentage is: ' + percentage)
-    let userField = [];
+  generateField(heigth, width, percentage) {
+    
+    
     let fieldArray = [];
     let fieldArrayX = [];
     for(let i=0; i< heigth; i++){
@@ -51,7 +46,8 @@ class Field {
     fieldArray.push(fieldArrayX);
     fieldArrayX = [];
     }
-    console.log(fieldArray);
+    fieldArray[this._locationX][this._locationY] = pathCharacter;
+    
     this._field = fieldArray;
 }
   
@@ -91,7 +87,7 @@ class Field {
       }
     } else if(input == 'r'){
       this._locationX += 1 ;
-      if(this._locationY > 3) {
+      if(this._locationX > this.generateField.width-1) {
         console.log("This is beyond of limits. Please select a valid direction");
         return this._locationX -= 1;
       } else if(this._field[this._locationY][this._locationX] == hat) {
@@ -126,7 +122,7 @@ class Field {
   }
 
   game () {
-    this.generateField();
+    this.generateField(10,100,60);
     while(this.gameStatus == false) {
     this.print();
     console.log(this._locationY, this._locationX);
