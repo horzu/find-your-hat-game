@@ -41,7 +41,12 @@ class Field {
     let fieldArrayX = [];
     for(let i=0; i< heigth; i++){
       for(let j=0; j< width; j++){
-        fieldArrayX.push(Math.floor((Math.random()*2)*(2*percentage/100)));
+        let randomNumber = Math.floor(Math.random()*2*percentage/100);
+        if(randomNumber == 0){
+        fieldArrayX.push(fieldCharacter);
+        } else {
+          fieldArrayX.push(hole);
+        }
       }
     fieldArray.push(fieldArrayX);
     fieldArrayX = [];
