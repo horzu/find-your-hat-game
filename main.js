@@ -46,8 +46,11 @@ class Field {
     fieldArray.push(fieldArrayX);
     fieldArrayX = [];
     }
-    fieldArray[this._locationX][this._locationY] = pathCharacter;
-    
+    this._locationX = Math.floor(Math.random()*width);
+    this._locationY = Math.floor(Math.random()*heigth);
+    console.log(this._locationX, this._locationY)
+    fieldArray[this._locationY][this._locationX] = pathCharacter;
+    fieldArray[Math.floor(Math.random()*width)][Math.floor(Math.random()*heigth)] = hat;
     this._field = fieldArray;
 }
   
@@ -87,7 +90,7 @@ class Field {
       }
     } else if(input == 'r'){
       this._locationX += 1 ;
-      if(this._locationX > this.generateField.width-1) {
+      if(this._locationX > this.generateField.length-1) {
         console.log("This is beyond of limits. Please select a valid direction");
         return this._locationX -= 1;
       } else if(this._field[this._locationY][this._locationX] == hat) {
@@ -122,21 +125,17 @@ class Field {
   }
 
   game () {
-    this.generateField(10,100,60);
+    this.generateField(10,20,60);
     while(this.gameStatus == false) {
     this.print();
-    console.log(this._locationY, this._locationX);
-    let direction = prompt('which way? u: up, r: right, d: down, l: left') 
+    /*console.log(this._locationY, this._locationX); */
+    let direction = prompt('which way? u: up, r: right, d: down, l: left  ') 
     this.move(direction);
     }
   }
 }
 
-const myField = new Field([
-  ['*', '░', 'O'],
-  ['░', 'O', '░'],
-  ['░', '^', '░'],
-]);
+const myField = new Field([]);
 
 /*myField.generateField();*/
 myField.game();
