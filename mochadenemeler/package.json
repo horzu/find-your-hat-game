@@ -1,0 +1,14 @@
+{
+  "name": "mochadenemesi",
+  "version": "1.0.0",
+  "description": "deneme",
+  "main": "deneme.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^8.2.1"
+  }
+}
