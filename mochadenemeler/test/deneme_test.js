@@ -1,3 +1,6 @@
+//before start you should print console: $ npm init. It ask information about project and creates packages. You can skip unnecessary information about project
+//before that you should install mocha with writing console that: $ npm install mocha -D . That downdloads the mocha package and its dependencies.
+
 const assert = require('assert');
 const rooster = require('../deneme');
 
